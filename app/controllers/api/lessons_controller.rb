@@ -18,7 +18,7 @@ class Api::LessonsController < ApplicationController
    path = '/V2/Http.svc/Translate'
    
    target = 'ko'
-   text = 'I love you'
+   text = 'I am a girl'
    
    params = '?to=' + target + '&text=' + CGI.escape(text)
    uri = URI (host + path + params)
@@ -32,8 +32,8 @@ class Api::LessonsController < ApplicationController
    
  
  
-   puts Hash.from_xml(response.body).to_json
- 
-    render json: @lessons
+   puts @api_response = Hash.from_xml(response.body).to_json
+ puts response.body
+    render json: @lessons 
   end
 end
