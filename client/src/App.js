@@ -26,7 +26,7 @@ class App extends Component {
               <a href="/">Welcome to O-Lingo! Log-In or Sign Up to continue.</a>
             </div>
             <button
-              bsStyle="primary"
+              
               className="btn-margin"
               onClick={this.goTo.bind(this, 'home')}
             >
@@ -36,7 +36,7 @@ class App extends Component {
               !isAuthenticated() && (
                   <button
                     id="qsLoginBtn"
-                    bsStyle="primary"
+                    
                     className="btn-margin"
                     onClick={this.login.bind(this)}
                   >
@@ -48,7 +48,7 @@ class App extends Component {
               isAuthenticated() && (
                   <button
                     id="qsLogoutBtn"
-                    bsStyle="primary"
+                    
                     className="btn-margin"
                     onClick={this.logout.bind(this)}
                   >
