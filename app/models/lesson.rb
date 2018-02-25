@@ -1,20 +1,13 @@
 class Lesson < ApplicationRecord
   belongs_to :user
   belongs_to :language
-  
-  # include HTTParty
+  ########################### API
      require 'net/https'
      require 'uri'
      require 'cgi'
-     require 'json'
-     require 'nokogiri'
+    #  require 'json'
+    #  require 'nokogiri'
    
-   # **********************************************
-   # *** Update or verify the following values. ***
-   # **********************************************
-   
-   # Replace the key string value with your valid subscription key.
-  #  def self.generate(api_id)
    key = '6a54283bc5134e1f8058ec86bd9fa516'
    host = 'https://api.microsofttranslator.com'
    path = '/V2/Http.svc/Translate'
@@ -34,9 +27,8 @@ class Lesson < ApplicationRecord
    
   puts data = Hash.from_xml(response.body)
   puts api_res = data["string"]
-   
-
-  @lessons = Lesson.create!( {title:text, audio:nil, question:text, answer:api_res,user_id:1, language_id:1} )
+  ############################# API
+  # @lessons = Lesson.create!( {title:text, audio:nil, question:text, answer:api_res,user_id:1, language_id:1})
   end
-# end
+
 
