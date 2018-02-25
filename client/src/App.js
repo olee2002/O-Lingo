@@ -22,39 +22,38 @@ class App extends Component {
       <div>
         <div>
           <div>
-            <div>
-              <a href="/">Welcome to O-Lingo! Log-In or Sign Up to continue.</a>
-            </div>
+
+            <a href="/">Welcome to O-Lingo!</a>
+
             <button
-              
+
               className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
+              onClick={this.goTo.bind(this,'home')}
             >
               Home
             </button>
             {
               !isAuthenticated() && (
-                  <button
-                    id="qsLoginBtn"
-                    
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
+                <button
+                  id="qsLoginBtn"
+
+                  className="btn-margin"
+                  onClick={this.login.bind(this)}>
+                  Log In
                   </button>
-                )
+              )
             }
             {
               isAuthenticated() && (
-                  <button
-                    id="qsLogoutBtn"
-                    
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
+                <button
+                  id="qsLogoutBtn"
+
+                  className="btn-margin"
+                  onClick={this.logout.bind(this)}
+                >
+                  Log Out
                   </button>
-                )
+              )
             }
           </div>
         </div>
