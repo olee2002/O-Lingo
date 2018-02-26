@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css';
 
+import LessonBox from './LessonBox.js'
+
 class LanguageList extends Component {
     state = {
         selectedOption: '',
@@ -17,7 +19,7 @@ class LanguageList extends Component {
             width: '50vh',
         }
         return (
-            
+            <div>
             <Select
                 name="form-field-name"
                 value={value}
@@ -30,6 +32,8 @@ class LanguageList extends Component {
                     { value: 'Chinese', label: 'Chinese' },
                     { value: 'Spanish', label: 'Spanish' },
                 ]} />
+                <LessonBox/>
+                </div>
         )
     }
 }
