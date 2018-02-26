@@ -4,21 +4,14 @@ import ReactDOM from 'react-dom'
 import Geocode from "react-geocode"
 
 
-
-
 class MapContainer extends Component {
 
-
-    //####################################################### API GOOGLE MAP   
     state = {
         lat: "",
         lng: "",
-        address: "3960 Live Oak Drive Doraville,GA",
+        address: "Atlanta,GA",
     }
     getGeocode = () => {
-        // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-        Geocode.setApiKey("AIzaSyCkLkbWR6ffwKyt0iZWK1ocErVK11Yi8M4");
-        // Get latidude & longitude from address.
         Geocode.fromAddress(this.state.address).then(
             response => {
                 const { lat, lng } = response.results[0].geometry.location;
@@ -28,57 +21,71 @@ class MapContainer extends Component {
     }
 
     options = {
-        enableHighAccuracy: true,
+        enableHighAccuracy: false,
         timeout: 8000,
         maximumAge: 1
     }
 
-
     error = (err) => {
         console.log(`ERROR(${err.code}): ${err.message}`)
     }
-    getLocation = async () => {
 
-        const location = await navigator.geolocation.getCurrentPosition(this.error, this.options)
-        try {
-        } catch (error) {
-
-        }
+    handleChange = (e) => {
+        var address = this.state.address
+        address = e.target.value
+        this.setState({ address })
     }
-    componentWillReceiveProps() {
 
+    handleSubmit = async (e) => {
+        e.preventDefault()
+        this.getGeocode()
+        console.log('fromhandsubmit:' + this.state.address)
+        this.setState({ address: this.state.address })
+    }
+
+    componentWillReceiveProps() {
         navigator.geolocation.getCurrentPosition(this.getGeocode, this.error, this.options)
     }
 
+
+
+
     render() {
+        const { address } = this.state
         const style = {
             width: '50vw',
             height: '50vh'
         }
-        console.log('from render:' + this.state.lat)
         return (
             <div>
-                {
-                    this.state.address === null ?
-                        <div>Please wait, loading...</div> :
-                        <Map google={this.props.google}
-                            style={style}
-                            center={{ lat: this.state.lat, lng: this.state.lng }}
-                            zoom={10}>
-                            <Marker
-                                onClick={this.onMarkerClick}
-                                name={'Current location'} />
-                        </Map>
-                }
+                <form onSubmit={this.handleSubmit}>
+                    Address:
+                <input
+                        value={this.state.address}
+                        type="text"
+                        onChange={this.handleChange}
+                    />
+                    <button type="submit">Save</button>
+                </form>
+                <br />
+                <Map google={this.props.google}
+                    style={style}
+                    center={{ lat: this.state.lat, lng: this.state.lng }}
+                    zoom={10}>
+                    <Marker
+                        // onClick={this.onMarkerClick}
+                        name={'Current location'}
+                        position={{ lat: this.state.lat, lng: this.state.lng }}
+                        icon='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+                    />
+                </Map>
             </div>
         )
 
     }
 }
 
-
-
-
+// export default MapContainer
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyCkLkbWR6ffwKyt0iZWK1ocErVK11Yi8M4'
 })(MapContainer)
