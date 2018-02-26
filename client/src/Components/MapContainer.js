@@ -78,7 +78,6 @@ class MapContainer extends Component {
                 </Map>
             </div>
         )
-
     }
 }
 

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 import MapContainer from '../Components/MapContainer.js'
+import LanguageList from '../Components/LanguageList.js'
+
+
 class Home extends Component {
   login() {
     this.props.auth.login();
@@ -13,8 +16,12 @@ class Home extends Component {
           isAuthenticated() && (
               <div>
               <h4>You are logged in!</h4>
-              <br/><br/>
-                <h3>My Google Map Location</h3>
+              <br/>
+              <h4>Choose the language to practice.</h4>
+              <LanguageList/><br/>
+              <br/>
+                <h4>My Google Map Location</h4>
+                <br/>
                 <MapContainer/>
               </div>
             )
@@ -37,4 +44,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Home

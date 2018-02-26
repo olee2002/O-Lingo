@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "react-bootstrap": "^0.32.1",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "react-select": "^1.2.1"
   }
 }

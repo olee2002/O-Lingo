@@ -13,7 +13,7 @@ class Lesson < ApplicationRecord
    path = '/V2/Http.svc/Translate'
    
    target = 'ko'
-   text = 'I am a girl'
+   text = 'I am a boy!'
    
    params = '?to=' + target + '&text=' + CGI.escape(text)
    uri = URI (host + path + params)
@@ -28,7 +28,7 @@ class Lesson < ApplicationRecord
   puts data = Hash.from_xml(response.body)
   puts api_res = data["string"]
   ############################# API
-  # @lessons = Lesson.create!( {title:text, audio:nil, question:text, answer:api_res,user_id:1, language_id:1})
+  @lessons = Lesson.create!( {title:text, audio:nil, question:text, answer:api_res,user_id:1, language_id:1})
   end
 
 
