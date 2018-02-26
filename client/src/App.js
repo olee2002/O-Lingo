@@ -23,7 +23,7 @@ class App extends Component {
         <div>
           <div>
 
-            <a href="/">Welcome to O-Lingo!</a>
+            <a href="/"> Welcome to O-Lingo!</a>
 
             <button
 

@@ -6,9 +6,11 @@
   "dependencies": {
     "auth0-js": "^9.3.0",
     "bootstrap": "^3.3.7",
+    "google-maps-react": "^1.1.2",
     "react": "^16.2.0",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^16.2.0",
+    "react-geocode": "0.0.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",

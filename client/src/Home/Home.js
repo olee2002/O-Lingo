@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+import MapContainer from '../Components/MapContainer.js'
 class Home extends Component {
   login() {
     this.props.auth.login();
@@ -10,9 +11,12 @@ class Home extends Component {
       <div className="container">
         {
           isAuthenticated() && (
-              <h4>
-                You are logged in!
-              </h4>
+              <div>
+              <h4>You are logged in!</h4>
+              <br/><br/>
+                <h3>My Google Map Location</h3>
+                <MapContainer/>
+              </div>
             )
         }
         {
