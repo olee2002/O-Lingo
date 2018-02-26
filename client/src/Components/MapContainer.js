@@ -31,7 +31,7 @@ class MapContainer extends Component {
     }
 
     handleChange = (e) => {
-        var address = this.state.address
+        let address = this.state.address
         address = e.target.value
         this.setState({ address })
     }
@@ -47,13 +47,10 @@ class MapContainer extends Component {
         navigator.geolocation.getCurrentPosition(this.getGeocode, this.error, this.options)
     }
 
-
-
-
     render() {
         const { address } = this.state
         const style = {
-            width: '50vw',
+            width: '50vh',
             height: '50vh'
         }
         return (
