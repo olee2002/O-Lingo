@@ -26,9 +26,9 @@ export const makeMainRoutes = () => {
           handleAuthentication(props);
           return <Callback {...props} />
         }} />
-        <Route path="/home/languages" component={LanguageList} />
+        {/* <Route path="/home/languages" component={LanguageList} />
         <Route path="/home/languages/:languageId" component={Language} />
-        <Route path="/home/languages/:languageId/lessons" component={LessonBox} />
+        <Route path="/home/languages/:languageId/lessons" component={LessonBox} /> */}
       </div>
     </Router>
   );

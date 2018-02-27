@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-// import Select from 'react-select'
-// import 'react-select/dist/react-select.css';
+import Select from 'react-select'
+
+import 'react-select/dist/react-select.css';
 
 import LessonBox from './LessonBox.js'
 
@@ -9,33 +10,44 @@ class LanguageList extends Component {
     state = {
         selectedOption: '',
         languages: [],
+        language: {},
+        languageId: "",
         lessons: [],
-        id:'',
         redirect: false
     }
-
-
-    //Using axios to get all the users
-    async componentWillMount() {
-        this.getLanguages()
-        // this.getLessons()
-
-    }
-    getLanguages = async () => {
+    //Using axios to get all languages and lessons
+    getAllData = async () => {
+        //All Languages
         const res = await axios.get('/api/languages')
-        // console.log('Languages:' + JSON.stringify(res.data))
         this.setState({ languages: res.data })
+        res.data.map((language) => {
+            //Single Language
+            this.setState({ language: language, languageId: language.id })
+        })
+        //Lessons
+        const resLesson = await axios.get(`/api/languages/${this.state.languageId}/lessons`)
+        this.setState({ lessons: resLesson.data })
     }
-   
+
     handleChange = (selectedOption) => {
         this.setState({ selectedOption });
-        // console.log(`Selected: ${selectedOption.lable}`);
     }
+    async componentWillMount() {
+        this.getAllData()
+        //  this.getLessons()
+    }
+
     render() {
         const { selectedOption } = this.state;
         const { languages } = this.state;
+        const { language } = this.state;
+        const { languageId } = this.state;
+        const { lessons } = this.state;
+        // console.log('Render-language:' + JSON.stringify(language))
+        // console.log('Render-languageId:' + JSON.stringify(languageId))
+        // console.log('Render-lessons:' + JSON.stringify(lessons))
         const allLanguages = this.state.languages.map((language, i) => {
-            return <option key={i} value= {language.name}>{language.name}</option>
+            return ({ value: language.name, label: language.name })
         })
         // console.log('mapLanuage:'+ JSON.stringify(allLanguages))
         // console.log('FromRender:'+languages)
@@ -45,14 +57,16 @@ class LanguageList extends Component {
         }
         return (
             <div>
-                <select>{allLanguages}</select>
-                {/* <Select
+                <Select
                     name="form-field-name"
                     value={value}
                     style={style}
                     onChange={this.handleChange}
-                    options={allLanguages} /> */}
-                <LessonBox languages={this.state.languages}{...this.props} />
+                    options={allLanguages} />
+                <LessonBox 
+                languages={languages}{...this.props}
+                lessons={lessons}{...this.props}
+                />
             </div>
         )
     }

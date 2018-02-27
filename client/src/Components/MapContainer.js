@@ -52,7 +52,7 @@ class MapContainer extends Component {
         const style = {
             width: '50vh',
             height: '50vh',
-            opacity: '0.5'
+            opacity: '0.75'
         }
         return (
             <div>
