@@ -1,18 +1,14 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React from 'react';
 
-class LessonBox extends Component {
+const LessonBox = (props) => {
+    // console.log("helloFromLessonBoxa:"+JSON.stringify(props))
+    return (
+        <div>
+            {props.languages.map((language)=>{
 
-  
-
-
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
-}
+            })}
+        </div>
+    );
+};
 
 export default LessonBox;
