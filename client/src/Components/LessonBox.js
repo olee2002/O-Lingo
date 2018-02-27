@@ -4,9 +4,7 @@ const LessonBox = (props) => {
     // console.log("helloFromLessonBoxa:"+JSON.stringify(props))
     return (
         <div>
-            {props.languages.map((language)=>{
-
-            })}
+            This message is from LessonBox
         </div>
     );
 };

@@ -6,6 +6,7 @@ import Callback from './Callback/Callback'
 import Auth from './Auth/Auth'
 import history from './history'
 import LanguageList from './Components/LanguageList'
+import Language from './Components/Language'
 import LessonBox from './Components/LessonBox'
 const auth = new Auth();
 
@@ -25,7 +26,8 @@ export const makeMainRoutes = () => {
           handleAuthentication(props);
           return <Callback {...props} />
         }} />
-         <Route path="/home/languages" component={LanguageList} />
+        <Route path="/home/languages" component={LanguageList} />
+        <Route path="/home/languages/:languageId" component={Language} />
         <Route path="/home/languages/:languageId/lessons" component={LessonBox} />
       </div>
     </Router>

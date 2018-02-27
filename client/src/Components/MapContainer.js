@@ -51,7 +51,8 @@ class MapContainer extends Component {
         const { address } = this.state
         const style = {
             width: '50vh',
-            height: '50vh'
+            height: '50vh',
+            opacity: '0.5'
         }
         return (
             <div>
