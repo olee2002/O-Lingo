@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Select from 'react-select'
+import styled from 'styled-components'
 import 'react-select/dist/react-select.css'
 import LessonBox from './LessonBox.js'
 
@@ -58,7 +59,7 @@ class LanguageList extends Component {
             width: '50vh'
         }
         return (
-            <div>
+            <Container>
                 <h4>Select A Language To Practice</h4>
                 <Select
                     name="form-field-name"
@@ -76,9 +77,20 @@ class LanguageList extends Component {
                     />
                     : null
                 }
-            </div>
+            </Container>
         )
     }
 }
 
 export default LanguageList
+
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+`

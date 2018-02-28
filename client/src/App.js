@@ -19,7 +19,7 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      <div>
+      <Container>
         <div id="navbar">
 
           <div id="navbutton"
@@ -31,7 +31,7 @@ class App extends Component {
             !isAuthenticated() && (
               <div id="navbutton"
                 onClick={this.login.bind(this)}>
-                <img id="icon" src="./image/login.png" /> Log In
+                <img id="icon" src="./image/login.png" /> LogIn
                   </div>
             )
           }
@@ -63,7 +63,7 @@ class App extends Component {
             isAuthenticated() && (
               <div id="navbutton"
                 onClick={this.logout.bind(this)} >
-                <img id="icon" src="./image/logout.png" />Log Out
+                <img id="icon" src="./image/logout.png" />LogOut
                   </div>
             )
           }
@@ -72,15 +72,15 @@ class App extends Component {
           <img id="icon" src="./image/cat.png" />
           Copyright © 2018, O-Lingo App, LLC All Rights Reserved.
         <div>
-            <a href="https://github.com/olee2002/O-Lingo" target="_blank" title="GitHub">
-              <img id="icon" src="./image/github.svg" />github</a>
+            <a href="https://github.com/olee2002/O-Lingo" id="footerbutton" class="footer" target="_blank" title="GitHub">
+              <img id="icon"  src="./image/github.svg" />Github</a>
           </div>
           <div>
-            <a href="mailto:babylee2002@gmail.com" target="" title="Email">
-              <img id="icon" src="./image/mail.png" />mail</a>
+            <a href="mailto:babylee2002@gmail.com" id="footerbutton" class="footer" target="" title="Email">
+              <img id="icon"  src="./image/mail.png" />Mail</a>
           </div>
         </div>
-      </div>
+      </Container>
     )
   }
 }
@@ -91,5 +91,10 @@ export default App;
 //// STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////
 
-
-
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  
+`

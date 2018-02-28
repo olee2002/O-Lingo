@@ -7,9 +7,22 @@ class Api::LessonsController < ApplicationController
 
   def create
 
-  @lessons = Lesson.create!( lesson_params )
+  @lesson = Lesson.create!( lesson_params )
 
-    render json: @lessons
+    render json: @lesson
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+    @lesson.update!(lesson_params)
+
+    render json: @lesson
+  end
+
+  def destroy
+    @lesson = Lesson.find(params[:id]).delete
+
+    render status: :ok
   end
 
   private

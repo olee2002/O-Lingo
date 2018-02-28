@@ -53,12 +53,15 @@ class MapContainer extends Component {
     render() {
         const { address } = this.state
         const style = {
-            width: '50vh',
-            height: '50vh',
-            opacity: '0.95'
+            width: '45vh',
+            height: '60vh',
+            opacity: '0.95',
+            border:'1px solid darkgray'
         }
         return (
-            <div>
+            <Container>
+                <h3> Type Your Favorite City</h3>
+                <br/>
                 <form onSubmit={this.handleSubmit}>
                     Address:
                 <input
@@ -71,6 +74,7 @@ class MapContainer extends Component {
                 <br />
                 <Map google={this.props.google}
                     style={style}
+                    id="map" 
                     center={{ lat: this.state.lat, lng: this.state.lng }}
                     zoom={10}>
                     <Marker
@@ -80,7 +84,7 @@ class MapContainer extends Component {
                         icon='https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
                     />
                 </Map>
-            </div>
+            </Container>
         )
     }
 }
@@ -95,3 +99,21 @@ export default GoogleApiWrapper({
 //// STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////
 
+const Container = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center; */
+ position:relative;
+left: 40px;
+  input{
+  background:none;
+  border: 1px solid darkgrey;
+  border-radius: 2px;
+  margin:2px;
+  background: white;
+  width: 27.5vh;
+  height: 4vh;
+}
+
+`
