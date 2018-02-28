@@ -4,40 +4,79 @@ body {
   /* font-family: 'Architects Daughter'; */
   font-family: 'Montserrat', sans-serif;
 }
+#icon{
+  width:2.5vh;
+  height:2.5vh;
+  margin: 1px;
+}
+#navbar{
+  position: fixed;
+  top:0;
+  left:0;
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  /* align-items: center; */
+  width:100vw;
+  height:7.5vh;
+  /* border: 1px solid darkgrey; */
+  margin-bottom:30px;
+  background: white;
+  z-index: 999;
+}
 
+input{
+  background:none;
+  border: 1px solid darkgrey;
+  border-radius: 2px;
+  margin:2px;
+  background: white;
+}
 
-#navbuttons{
-  /* display:flex;
+#navbutton{
+  background:none;
+  width: 12.5vh;
+  display:flex;
   flex-direction:row;
   justify-content: center;
-  align-items: center; */
-  width:100vw;
-  height:8vh;
-  border: 1px solid darkgrey;
-  margin-bottom: 30px;
-  padding:2vh;
+  align-items: center;
+
 }
+#navbutton:hover{
+  border: none;
+  border-bottom: 5px solid darkgray;
+  background: white;
+  opacity: 0.6;
+  transform:translateY(1px);
+  }
 
 button{
 
   background:none;
-  border-radius: 2px;
-  margin:2px;
-  float: left;
+  /* border: 1px solid darkgrey;
+  border-radius: 2px; */
+  /* margin:5px; */
+
 }
+
 button:hover{
-
-  background:rgba(0,0,0,0.05);
-  transform:translateY(1px);
+  border: none;
+  border-top: 3px solid darkgray;
+  border-bottom: 3px solid darkgray;
+  background: white;
+  /* transform:translateY(1px); */
   }
-
-
-.img{
-  
-  width:100%;
-  height:100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  #footer{
+    position: fixed;
+    bottom:0;
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    align-items: center;
+    width:100vw;
+    height:7.5vh;
+    /* border: 1px solid darkgrey; */
+    background: white;
+    font-size: 1.5vh;
+    color: rgba(0,0,0,0.5)
+  }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 import ReactDOM from 'react-dom'
 import Geocode from "react-geocode"
+import styled from 'styled-components'
 
 
 class MapContainer extends Component {
@@ -45,6 +46,8 @@ class MapContainer extends Component {
 
     componentWillReceiveProps() {
         navigator.geolocation.getCurrentPosition(this.getGeocode, this.error, this.options)
+        this.handleChange
+        this.handleSubmit
     }
 
     render() {
@@ -52,7 +55,7 @@ class MapContainer extends Component {
         const style = {
             width: '50vh',
             height: '50vh',
-            opacity: '0.75'
+            opacity: '0.95'
         }
         return (
             <div>
@@ -86,3 +89,9 @@ class MapContainer extends Component {
 export default GoogleApiWrapper({
     apiKey: 'AIzaSyCkLkbWR6ffwKyt0iZWK1ocErVK11Yi8M4'
 })(MapContainer)
+
+
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
+
