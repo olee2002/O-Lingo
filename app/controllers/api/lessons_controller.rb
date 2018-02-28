@@ -1,7 +1,7 @@
 class Api::LessonsController < ApplicationController
   def index
-    @lessons = Language.find(params[:language_id]).lessons
-
+    # @lessons = Language.find(params[:language_id]).lessons
+    @lessons = Lesson.all
     render json: @lessons 
   end
 

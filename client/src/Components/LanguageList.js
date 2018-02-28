@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import Select from 'react-select'
-
-import 'react-select/dist/react-select.css';
-
+import 'react-select/dist/react-select.css'
 import LessonBox from './LessonBox.js'
+import Youtube from './Youtube.js'
 
 class LanguageList extends Component {
     state = {
@@ -12,9 +11,9 @@ class LanguageList extends Component {
         languages: [],
         language: {},
         languageId: "",
-        lessons: [],
-        redirect: false
+        lessons: []
     }
+
     //Using axios to get all languages and lessons
     getAllData = async () => {
         //All Languages
@@ -26,15 +25,17 @@ class LanguageList extends Component {
         })
         //Lessons
         const resLesson = await axios.get(`/api/languages/${this.state.languageId}/lessons`)
+        console.log('fromGetAllData:' + JSON.stringify(resLesson.data))
         this.setState({ lessons: resLesson.data })
     }
 
     handleChange = (selectedOption) => {
-        this.setState({ selectedOption });
+
+        this.setState({ language: selectedOption, selectedOption: selectedOption });
     }
     async componentWillMount() {
         this.getAllData()
-        //  this.getLessons()
+
     }
 
     render() {
@@ -43,30 +44,53 @@ class LanguageList extends Component {
         const { language } = this.state;
         const { languageId } = this.state;
         const { lessons } = this.state;
+        // console.log(this.state.selectedOption)
         // console.log('Render-language:' + JSON.stringify(language))
         // console.log('Render-languageId:' + JSON.stringify(languageId))
         // console.log('Render-lessons:' + JSON.stringify(lessons))
         const allLanguages = this.state.languages.map((language, i) => {
-            return ({ value: language.name, label: language.name })
+            return ({ value: language.name, label: language.name, id: language.id })
         })
         // console.log('mapLanuage:'+ JSON.stringify(allLanguages))
         // console.log('FromRender:'+languages)
-        const value = selectedOption && selectedOption.value;
+        const value = selectedOption.value && selectedOption.value;
+        // console.log('WhatisValue' + selectedOption.value)
         const style = {
             width: '50vh'
         }
         return (
             <div>
+                <Youtube
+                    videoId={null}                  // defaults -> null
+                    id={null}                       // defaults -> null
+                    className={null}                // defaults -> null
+                    containerClassName='youtube'      // defaults -> ''
+                    //                       // defaults -> {}
+                    // onReady={noop}                    // defaults -> noop
+                    // onPlay={noop}                     // defaults -> noop
+                    // onPause={noop}                    // defaults -> noop
+                    // onEnd={noop}                      // defaults -> noop
+                    // onError={noop}                    // defaults -> noop
+                    // onStateChange={noop}              // defaults -> noop
+                    // onPlaybackRateChange={noop}       // defaults -> noop
+                    // onPlaybackQualityChange={noop}    // defaults -> noop
+                />
                 <Select
                     name="form-field-name"
                     value={value}
                     style={style}
                     onChange={this.handleChange}
                     options={allLanguages} />
-                <LessonBox 
-                languages={languages}{...this.props}
-                lessons={lessons}{...this.props}
-                />
+
+                {selectedOption ?
+                    <LessonBox
+                        language={language}
+                        languages={languages}
+                        lessons={lessons}
+                        selectedOption={selectedOption}
+                    />
+                    : null
+                }
             </div>
         )
     }
