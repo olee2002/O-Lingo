@@ -11,28 +11,17 @@ class LessonEditForm extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-          
-        })
+    
     }
 
     state = {
-        lessons:
-        }
+        lesson:{}
     }
 
     handleChange = (event) => {
-        const updatedlesson = {
-            ...this.state.lessonBeingEdited
-        }
-
-        const inputField = event.target.name
-        const inputValue = event.target.value
-        updatedlesson[inputField] = inputValue
+    
         this.setState({ lessonBeingEdited: updatedlesson })
     }
-
- 
 
     render() {
         return (
@@ -41,17 +30,23 @@ class LessonEditForm extends Component {
                     type="text"
                     name="title"
                     onChange={this.handleChange}
-                    value={this.state.lessonBeingEdited.title}
-                    placeholder="Title" />
-                <textarea
+                    value={this.state.lesson.title} />
+                     <input
                     type="text"
-                    name="content"
+                    name="audio"
                     onChange={this.handleChange}
-                    value={this.state.lessonBeingEdited.content}
-                    placeholder="Content" />
-                <button onClick={this.handleEditlesson}>
-                    Edit
-        </button>
+                    value={this.state.lesson.audio} />
+                       <input
+                    type="text"
+                    name="question"
+                    onChange={this.handleChange}
+                    value={this.state.lesson.question} />
+               <input
+                    type="text"
+                    name="answer"
+                    onChange={this.handleChange}
+                    value={this.state.lesson.answer} />
+            <button>Edit</button> <button>Delete</button>
             </Container>
         )
     }
