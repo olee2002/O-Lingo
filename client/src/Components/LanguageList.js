@@ -3,7 +3,6 @@ import axios from 'axios'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 import LessonBox from './LessonBox.js'
-import Youtube from './Youtube.js'
 
 class LanguageList extends Component {
     state = {
@@ -60,21 +59,7 @@ class LanguageList extends Component {
         }
         return (
             <div>
-                <Youtube
-                    videoId={null}                  // defaults -> null
-                    id={null}                       // defaults -> null
-                    className={null}                // defaults -> null
-                    containerClassName='youtube'      // defaults -> ''
-                    //                       // defaults -> {}
-                    // onReady={noop}                    // defaults -> noop
-                    // onPlay={noop}                     // defaults -> noop
-                    // onPause={noop}                    // defaults -> noop
-                    // onEnd={noop}                      // defaults -> noop
-                    // onError={noop}                    // defaults -> noop
-                    // onStateChange={noop}              // defaults -> noop
-                    // onPlaybackRateChange={noop}       // defaults -> noop
-                    // onPlaybackQualityChange={noop}    // defaults -> noop
-                />
+                
                 <Select
                     name="form-field-name"
                     value={value}

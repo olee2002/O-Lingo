@@ -45,16 +45,26 @@ class App extends Component {
             }
             {
               isAuthenticated() && (
+                  <button
+                    bsStyle="primary"
+                    onClick={this.goTo.bind(this, 'profile')}>
+                    Profile
+                  </button>
+                )
+            }
+            {
+              isAuthenticated() && (
                 <button
                   id="qsLogoutBtn"
-
                   className="btn-margin"
-                  onClick={this.logout.bind(this)}
-                >
+                  onClick={this.logout.bind(this)} >
                   Log Out
                   </button>
               )
             }
+          </div>
+          <div className="container">
+          {this.props.children}
           </div>
         </div>
       </div>

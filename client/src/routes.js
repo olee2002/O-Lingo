@@ -1,13 +1,17 @@
 import React from 'react';
-import { Route, Router } from 'react-router-dom'
+import { Redirect, Route, Router, BrowserRouter } from 'react-router-dom'
 import App from './App'
 import Home from './Home/Home'
+import Profile from './Profile/Profile';
 import Callback from './Callback/Callback'
 import Auth from './Auth/Auth'
 import history from './history'
 import LanguageList from './Components/LanguageList'
-
+import PropTypes from 'prop-types'
+import { LocaleProvider } from 'react-translations'
+import Homepage from './Home/Homepage'
 import LessonBox from './Components/LessonBox'
+
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
@@ -22,6 +26,14 @@ export const makeMainRoutes = () => {
       <div>
         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
         <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route path="/profile" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Profile auth={auth} {...props} />
+            )
+          )} />
+        
         <Route path="/callback" render={(props) => {
           handleAuthentication(props);
           return <Callback {...props} />
@@ -32,4 +44,26 @@ export const makeMainRoutes = () => {
       </div>
     </Router>
   );
+}
+export function ClientRouter ({ locale }) {
+  return (
+    <BrowserRouter>
+      <TranslateApp locale={locale}/>
+    </BrowserRouter>
+  )
+}
+
+export function TranslateApp ({ locale }) {
+  return (
+    <LocaleProvider locale={locale}>
+      <Route path="/:locale" component={Homepage}/>
+    </LocaleProvider>
+  )
+}
+
+ClientRouter.propTypes = {
+  locale: PropTypes.string.isRequired,
+}
+App.propTypes = {
+  locale: PropTypes.string.isRequired,
 }

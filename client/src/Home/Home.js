@@ -14,30 +14,25 @@ class Home extends Component {
       <div className="container">
         {
           isAuthenticated() && (
-              <div>
-              <h4>You are logged in!</h4>
-              <br/>
-              <h4>Choose the language to practice.</h4>
-              <LanguageList/><br/>
-              <br/>
-                <h4>My Google Map Location</h4>
-                <br/>
-                <MapContainer/>
-              </div>
-            )
-        }
+            <div>
+              <br />
+              <LanguageList />
+              <br />
+              <MapContainer />
+            </div>
+          )}
         {
           !isAuthenticated() && (
-              <h4>
-                You are not logged in! Please{' '}
-                <a
-                  style={{ cursor: 'pointer' }}
-                  onClick={this.login.bind(this)}>
-                  Log In
+            <h4>
+              You are not logged in! Please{' '}
+              <a
+                style={{ cursor: 'pointer' }}
+                onClick={this.login.bind(this)}>
+                Log In
                 </a>
-                {' '}to continue.
+              {' '}to continue.
               </h4>
-            )
+          )
         }
       </div>
     );
