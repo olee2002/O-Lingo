@@ -1,5 +1,36 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  /* font-family: 'Architects Daughter'; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding:0px;
+  top:0;
+  left:20px;
+  /* font-family: 'Architects Daughter'; */
+  font-family: 'Montserrat', sans-serif;
+}
+
+body::before {
+  content : "";
+  display: block;
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-image:linear-gradient(transparent,transparent,transparent,white),url(http://allswalls.com/images/cute-cats-hd-wallpaper-1.jpg);
+  background-size: cover;
+  /* background-repeat:no-repeat; */
+  width: 100%;
+  height: 100%;
+  opacity : 1;
+  z-index: -999;
 }

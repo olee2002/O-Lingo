@@ -24,7 +24,7 @@ class LanguageList extends Component {
         })
         //Lessons
         const resLesson = await axios.get(`/api/languages/${this.state.languageId}/lessons`)
-        console.log('fromGetAllData:' + JSON.stringify(resLesson.data))
+        // console.log('fromGetAllData:' + JSON.stringify(resLesson.data))
         this.setState({ lessons: resLesson.data })
     }
 
@@ -59,7 +59,7 @@ class LanguageList extends Component {
         }
         return (
             <div>
-                
+                <h4>Select A Language To Practice</h4>
                 <Select
                     name="form-field-name"
                     value={value}

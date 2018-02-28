@@ -27,9 +27,9 @@ class Profile extends Component {
             <img src={profile.picture} alt="profile" />
             <div>
               <ControlLabel> <Glyphicon glyph="user" /> 
-              <h4>Username:{profile.nickname}</h4>
-              <h4>Name:{profile.name}</h4>
-              <h4>Last Login:{profile.updated_at}</h4></ControlLabel>
+              <h4>Username : {profile.nickname}</h4>
+              <h4>Name : {profile.name}</h4>
+              <h4>Joined At : {profile.updated_at}</h4></ControlLabel>
             </div>
             {/* <pre>{JSON.stringify(profile, null, 2)}</pre> */}
           </Panel>

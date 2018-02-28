@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LessonBox = (props) => {
-console.log('hello:'+JSON.stringify(props.lessons))
+// console.log('hello:'+JSON.stringify(props.lessons))
 
 
     return (

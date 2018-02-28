@@ -12,15 +12,7 @@ class Home extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-        {
-          isAuthenticated() && (
-            <div>
-              <br />
-              <LanguageList />
-              <br />
-              <MapContainer />
-            </div>
-          )}
+        
         {
           !isAuthenticated() && (
             <h4>

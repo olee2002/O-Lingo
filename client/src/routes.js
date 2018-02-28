@@ -10,7 +10,7 @@ import LanguageList from './Components/LanguageList'
 import PropTypes from 'prop-types'
 import { LocaleProvider } from 'react-translations'
 import Homepage from './Home/Homepage'
-import LessonBox from './Components/LessonBox'
+import MapContainer from './Components/MapContainer'
 
 const auth = new Auth();
 
@@ -25,45 +25,33 @@ export const makeMainRoutes = () => {
     <Router history={history}>
       <div>
         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-        <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
-        <Route path="/profile" render={(props) => (
-            !auth.isAuthenticated() ? (
-              <Redirect to="/home"/>
-            ) : (
+        <Route exact path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route exact path="/profile" render={(props) => (
+          !auth.isAuthenticated() ? (
+            <Redirect to="/home" />
+          ) : (
               <Profile auth={auth} {...props} />
             )
-          )} />
-        
+        )} />
+        <Route exact path="/googlemap" render={(props) => (
+          !auth.isAuthenticated() ? (
+            <Redirect to="/home" />
+          ) : (
+              <MapContainer {...props} />
+            )
+        )} />
+        <Route exact path="/lessons" render={(props) => (
+          !auth.isAuthenticated() ? (
+            <Redirect to="/home" />
+          ) : (
+              <LanguageList {...props} />
+            )
+        )} />
         <Route path="/callback" render={(props) => {
-          handleAuthentication(props);
+          handleAuthentication(props)
           return <Callback {...props} />
         }} />
-        {/* <Route path="/home/languages" component={LanguageList} />
-        <Route path="/home/languages/:languageId" component={Language} />
-        <Route path="/home/languages/:languageId/lessons" component={LessonBox} /> */}
       </div>
     </Router>
   );
-}
-export function ClientRouter ({ locale }) {
-  return (
-    <BrowserRouter>
-      <TranslateApp locale={locale}/>
-    </BrowserRouter>
-  )
-}
-
-export function TranslateApp ({ locale }) {
-  return (
-    <LocaleProvider locale={locale}>
-      <Route path="/:locale" component={Homepage}/>
-    </LocaleProvider>
-  )
-}
-
-ClientRouter.propTypes = {
-  locale: PropTypes.string.isRequired,
-}
-App.propTypes = {
-  locale: PropTypes.string.isRequired,
 }

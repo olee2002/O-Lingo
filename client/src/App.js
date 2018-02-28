@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
+import styled from 'styled-components'
 import './App.css';
 
 class App extends Component {
@@ -19,25 +19,17 @@ class App extends Component {
     const { isAuthenticated } = this.props.auth;
 
     return (
-      <div>
-        <div>
-          <div>
-
-            <a href="/"> Welcome to O-Lingo!</a>
+      
+          <div id="navbuttons">
 
             <button
-
-              className="btn-margin"
-              onClick={this.goTo.bind(this,'home')}
+              onClick={this.goTo.bind(this, 'home')}
             >
               Home
             </button>
             {
               !isAuthenticated() && (
                 <button
-                  id="qsLoginBtn"
-
-                  className="btn-margin"
                   onClick={this.login.bind(this)}>
                   Log In
                   </button>
@@ -45,31 +37,47 @@ class App extends Component {
             }
             {
               isAuthenticated() && (
-                  <button
-                    bsStyle="primary"
-                    onClick={this.goTo.bind(this, 'profile')}>
-                    Profile
+                <button
+                  onClick={this.goTo.bind(this, 'profile')}>
+                  Profile
                   </button>
-                )
+              )
             }
             {
               isAuthenticated() && (
                 <button
-                  id="qsLogoutBtn"
-                  className="btn-margin"
+                  onClick={this.goTo.bind(this, 'lessons')}>
+                  Lessons
+                  </button>
+              )
+            }
+            {
+              isAuthenticated() && (
+                <button
+                  onClick={this.goTo.bind(this, 'googlemap')}>
+                  Map
+                  </button>
+              )
+            }
+            {
+              isAuthenticated() && (
+                <button
                   onClick={this.logout.bind(this)} >
                   Log Out
                   </button>
               )
             }
           </div>
-          <div className="container">
-          {this.props.children}
-          </div>
-        </div>
-      </div>
+       
     );
   }
 }
 
 export default App;
+
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
+
+
+
