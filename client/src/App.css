@@ -10,7 +10,7 @@ body {
   margin: 1px;
 }
 #navbar{
-  position: fixed;
+  position: relative;
   top:0;
   left:0;
   display:flex;
@@ -51,12 +51,10 @@ input{
   }
 
 button{
-
   background:none;
   /* border: 1px solid darkgrey;
   border-radius: 2px; */
   /* margin:5px; */
-
 }
 
 button:hover{
