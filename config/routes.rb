@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # namespace :api do
   #   get 'users/index'
   # end
-  root to: "callback#index"
+  # root to: "callback#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
     resources :users do
