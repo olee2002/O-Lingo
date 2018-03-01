@@ -5,16 +5,17 @@ import LessonCreateForm from './LessonCreateForm'
 const LessonBox = (props) => {
     // console.log('hello:'+JSON.stringify(props.lessons))
     return (
+        <Wrapper>
+        <button onClick={props.toggleLessonAdd} >Add Lesson </button>
+            
+        {props.isToggled ?
+        <LessonCreateForm
+                        lessons={props.lessons}{...props}
+                        languages={props.languages}{...props}
+                        language={props.language}{...props}  
+                    /> : null}
         <Container>
-            
-            <button onClick={props.toggleLessonAdd} >Add Lesson </button>
-            
-            {props.isToggled ?
-            <LessonCreateForm
-                            lessons={props.lessons}{...props}
-                            languages={props.languages}{...props}
-                            language={props.language}{...props}  
-                        /> : null}
+
             {props.lessons.map((lesson, i) => {
                 // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
                 // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
@@ -44,6 +45,7 @@ const LessonBox = (props) => {
                 )
             })}
         </Container>
+        </Wrapper>
     )
 }
 
@@ -52,6 +54,15 @@ export default LessonBox
 ///////////////////////////////////////////////////////////////////////////////
 //// STYLED-COMPONENTS
 ///////////////////////////////////////////////////////////////////////////////
+const Wrapper = styled.div`
+display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items:center;
+  button{
+      margin: 20px
+  }
+`
 
 const Container = styled.div`
   display: flex;
