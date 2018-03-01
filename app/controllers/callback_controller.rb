@@ -1,6 +1,6 @@
 class CallbackController < ApplicationController
     def index
-      puts Hello!
+      redirect_to "/"
     end
   end
   
