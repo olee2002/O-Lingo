@@ -6,12 +6,15 @@ const LessonBox = (props) => {
     // console.log('hello:'+JSON.stringify(props.lessons))
     return (
         <Container>
-
+            
+            <button onClick={props.toggleLessonAdd} >Add Lesson </button>
+            
+            {props.isToggled ?
             <LessonCreateForm
                             lessons={props.lessons}{...props}
                             languages={props.languages}{...props}
                             language={props.language}{...props}  
-                        />
+                        /> : null}
             {props.lessons.map((lesson, i) => {
                 // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
                 // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
@@ -19,10 +22,12 @@ const LessonBox = (props) => {
                 return (
                     
                     <Lesson key={i}>
-                        <div><h3>{lesson.title}</h3><button
+                        <div><h3>{lesson.title}</h3>
+                        {/* <button
                     onClick={(lesson) => { props.deleteLesson(lesson) }}>
                     X
-                </button></div>
+                </button> */}
+                </div>
                         <div>
                             <strong>Question</strong>: {lesson.question}  |
                         <strong> Answer</strong>: {lesson.answer}

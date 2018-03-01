@@ -4,14 +4,14 @@ class Api::LessonsController < ApplicationController
   def index
     # @lessons = Language.find(params[:language_id]).lessons
     @lessons = Lesson.all
-    render json: @lessons 
+    render json: @lessons.reverse 
   end
 
   def create
 
   @lesson = Lesson.create!( lesson_params )
 
-    render json: @lesson
+    render json: @lesson.reverse
   end
 
   def update

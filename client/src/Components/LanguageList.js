@@ -12,7 +12,12 @@ class LanguageList extends Component {
         language: {},
         languageId: "",
         lessons: [],
-        lesson:{}
+        lesson:{},
+        isToggled:false
+    }
+    toggleLessonAdd = ()=>{
+        console.log('Hello Its toggled')
+        this.setState({isToggled:!this.state.isToggled})
     }
     //Using axios to get all languages and lessons
     getAllData = async () => {
@@ -86,8 +91,10 @@ class LanguageList extends Component {
                         language={language}
                         languages={languages}
                         lessons={lessons}
+                        isToggled ={this.state.isToggled}
                         selectedOption={selectedOption}
                         deleteLesson={this.deleteLesson}
+                        toggleLessonAdd={this.toggleLessonAdd}
                     />
                     : null
                 }
