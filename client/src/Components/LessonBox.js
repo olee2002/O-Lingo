@@ -1,22 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import LessonCreateForm from './LessonCreateForm'
 
 const LessonBox = (props) => {
-// console.log('hello:'+JSON.stringify(props.lessons))
-
-
+    // console.log('hello:'+JSON.stringify(props.lessons))
     return (
-        <Container> 
+        <Container>
+
+            <LessonCreateForm
+                            lessons={props.lessons}{...props}
+                            languages={props.languages}{...props}
+                            language={props.language}{...props}  
+                        />
             {props.lessons.map((lesson, i) => {
                 // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
                 // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
-                 if (props.selectedOption.id!==lesson.language_id){return null}
+                if (props.selectedOption.id !== lesson.language_id) { return null }
                 return (
-                   
+                    
                     <Lesson key={i}>
-                        <h3>{lesson.title}</h3>
+                        <div><h3>{lesson.title}</h3><button
+                    onClick={(lesson) => { props.deleteLesson(lesson) }}>
+                    X
+                </button></div>
                         <div>
-                        <strong>Question</strong>: {lesson.question}  |
+                            <strong>Question</strong>: {lesson.question}  |
                         <strong> Answer</strong>: {lesson.answer}
                         </div>
                         <br />

@@ -11,9 +11,9 @@ class LanguageList extends Component {
         languages: [],
         language: {},
         languageId: "",
-        lessons: []
+        lessons: [],
+        lesson:{}
     }
-
     //Using axios to get all languages and lessons
     getAllData = async () => {
         //All Languages
@@ -25,10 +25,21 @@ class LanguageList extends Component {
         })
         //Lessons
         const resLesson = await axios.get(`/api/languages/${this.state.languageId}/lessons`)
-        // console.log('fromGetAllData:' + JSON.stringify(resLesson.data))
         this.setState({ lessons: resLesson.data })
     }
+    deleteLesson = async (lesson) => {
+        try {
+            await axios.get(`/api/languages/${this.state.language.id}/lessons`,lesson)
 
+            const indexToDelete = this.state.lessons.indexOf(lesson)
+            const lessons = [...this.state.lessons]
+            lesson.splice(indexToDelete, 1)
+
+            this.setState({ lessons })
+        } catch (error) {
+            console.log(error)
+        }
+    }
     handleChange = (selectedOption) => {
 
         this.setState({ language: selectedOption, selectedOption: selectedOption });
@@ -39,6 +50,8 @@ class LanguageList extends Component {
     }
 
     render() {
+
+
         const { selectedOption } = this.state;
         const { languages } = this.state;
         const { language } = this.state;
@@ -74,6 +87,7 @@ class LanguageList extends Component {
                         languages={languages}
                         lessons={lessons}
                         selectedOption={selectedOption}
+                        deleteLesson={this.deleteLesson}
                     />
                     : null
                 }

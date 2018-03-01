@@ -72,11 +72,11 @@ class App extends Component {
           <img id="icon" src="./image/cat.png" />
           Copyright © 2018, O-Lingo App, LLC All Rights Reserved.
         <div>
-            <a href="https://github.com/olee2002/O-Lingo" id="footerbutton" class="footer" target="_blank" title="GitHub">
+            <a href="https://github.com/olee2002/O-Lingo" id="footerbutton"  target="_blank" title="GitHub">
               <img id="icon"  src="./image/github.svg" />Github</a>
           </div>
           <div>
-            <a href="mailto:babylee2002@gmail.com" id="footerbutton" class="footer" target="" title="Email">
+            <a href="mailto:babylee2002@gmail.com" id="footerbutton"  target="" title="Email">
               <img id="icon"  src="./image/mail.png" />Mail</a>
           </div>
         </div>

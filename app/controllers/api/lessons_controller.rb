@@ -1,4 +1,6 @@
 class Api::LessonsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
+
   def index
     # @lessons = Language.find(params[:language_id]).lessons
     @lessons = Lesson.all
@@ -20,14 +22,14 @@ class Api::LessonsController < ApplicationController
   end
 
   def destroy
-    @lesson = Lesson.find(params[:id]).delete
+    @lesson = Lesson.find(params[:id]).destroy
 
-    render status: :ok
+    render status: 200
   end
 
   private
 
   def lesson_params
-    params.require(:lesson).permit(:title, :audio, :question, :answer,:user_id, :language_id)
+    params.require(:lesson).permit(:title, :audio, :question, :answer, :user_id, :language_id)
   end
 end
