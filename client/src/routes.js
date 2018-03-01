@@ -34,11 +34,11 @@ export const makeMainRoutes = () => {
           return <Callback {...props} />
         }} />
         <Route exact path="/profile" render={(props) => (
-          !auth.isAuthenticated() ? (
-            <Redirect to="/home" />
-          ) : (
+          // !auth.isAuthenticated() ? (
+          //   <Redirect to="/home" />
+          // ) : (
               <Profile auth={auth} {...props} />
-            )
+            // )
         )} />
         <Route exact path="/googlemap" render={(props) => (
           !auth.isAuthenticated() ? (
@@ -48,11 +48,11 @@ export const makeMainRoutes = () => {
             )
         )} />
         <Route exact path="/lessons" render={(props) => (
-          !auth.isAuthenticated() ? (
-            <Redirect to="/home" />
-          ) : (
+          // !auth.isAuthenticated() ? (
+          //   <Redirect to="/home" />
+          // ) : (
               <LanguageList {...props} />
-            )
+            // )
         )} />
        
       </div>
