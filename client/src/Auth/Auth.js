@@ -6,8 +6,8 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain:'olees.auth0.com',
     clientID: 'SnVcPvOB5bL9aycX5XV9t1iadr2wCP5F',
-    redirectUri: 'http://localhost:3000/callback',
-    // redirectUri: 'https://o-lingo.herokuapp.com/callback',
+    // redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'https://o-lingo.herokuapp.com/callback',
     audience: 'https://olees.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
