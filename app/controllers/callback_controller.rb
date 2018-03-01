@@ -1,6 +1,7 @@
 class CallbackController < ApplicationController
     def index
-      redirect_to "/callback"
+     @tests='test'
+     render json:@tests
     end
   end
   
