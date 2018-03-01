@@ -1,16 +1,17 @@
 import history from '../history';
 import auth0 from 'auth0-js';
-import { AUTH_CONFIG } from './auth0-variables';
+// import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientId,
-    redirectUri: AUTH_CONFIG.callbackUrl,
-    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
+    domain:'olees.auth0.com',
+    clientID: 'SnVcPvOB5bL9aycX5XV9t1iadr2wCP5F',
+    redirectUri: 'https://o-lingo.herokuapp.com/callback',
+    audience: 'https://olees.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid profile'
   });
+
 
   constructor() {
     this.login = this.login.bind(this);
