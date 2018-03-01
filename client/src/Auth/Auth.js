@@ -20,7 +20,7 @@ export default class Auth {
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
-    this.getProfile = this.getProfile.bind(this);
+    // this.getProfile = this.getProfile.bind(this);
   }
   getAccessToken() {
     const accessToken = localStorage.getItem('access_token');
@@ -29,15 +29,15 @@ export default class Auth {
     }
     return accessToken;
   }
-  getProfile(cb) {
-    let accessToken = this.getAccessToken();
-    this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if (profile) {
-        this.userProfile = profile;
-      }
-      cb(err, profile);
-    });
-  }
+  // getProfile(cb) {
+  //   let accessToken = this.getAccessToken();
+  //   this.auth0.client.userInfo(accessToken, (err, profile) => {
+  //     if (profile) {
+  //       this.userProfile = profile;
+  //     }
+  //     cb(err, profile);
+  //   });
+  // }
   
 
   login() {
