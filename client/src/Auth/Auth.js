@@ -1,44 +1,23 @@
 import history from '../history';
 import auth0 from 'auth0-js';
-// import { AUTH_CONFIG } from './auth0-variables';
+import { AUTH_CONFIG } from './auth0-variables';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain:'olees.auth0.com',
-    clientID: 'SnVcPvOB5bL9aycX5XV9t1iadr2wCP5F',
-    // redirectUri: 'http://localhost:3000/callback',
-    redirectUri: 'https://o-lingo.herokuapp.com/callback',
-    audience: 'https://olees.auth0.com/userinfo',
+    domain: AUTH_CONFIG.domain,
+    clientID: AUTH_CONFIG.clientId,
+    redirectUri: AUTH_CONFIG.callbackUrl,
+    audience: `https://${AUTH_CONFIG.domain}/userinfo`,
     responseType: 'token id_token',
-    scope: 'openid profile'
+    scope: 'openid'
   });
-
 
   constructor() {
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
-    // this.getAccessToken = this.getAccessToken.bind(this);
-    // this.getProfile = this.getProfile.bind(this);
   }
-  getAccessToken() {
-    const accessToken = localStorage.getItem('access_token');
-    if (!accessToken) {
-      throw new Error('No Access Token found');
-    }
-    return accessToken;
-  }
-  // getProfile(cb) {
-  //   let accessToken = this.getAccessToken();
-  //   this.auth0.client.userInfo(accessToken, (err, profile) => {
-  //     if (profile) {
-  //       this.userProfile = profile;
-  //     }
-  //     cb(err, profile);
-  //   });
-  // }
-  
 
   login() {
     this.auth0.authorize();
@@ -83,5 +62,3 @@ export default class Auth {
     return new Date().getTime() < expiresAt;
   }
 }
-
-
