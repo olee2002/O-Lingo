@@ -26,6 +26,10 @@ export const makeMainRoutes = () => {
       <div>
         <Route path="/" render={(props) => <App auth={auth} {...props} />} />
         <Route exact path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route path="/callback" render={(props) => {
+          handleAuthentication(props)
+          return <Callback {...props} />
+        }} />
         <Route exact path="/profile" render={(props) => (
           !auth.isAuthenticated() ? (
             <Redirect to="/home" />
@@ -47,10 +51,7 @@ export const makeMainRoutes = () => {
               <LanguageList {...props} />
             )
         )} />
-        <Route path="/callback" render={(props) => {
-          handleAuthentication(props)
-          return <Callback {...props} />
-        }} />
+       
       </div>
     </Router>
   );
