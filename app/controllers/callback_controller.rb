@@ -1,6 +1,7 @@
 class CallbackController < ApplicationController
     def index
-      redirect_to "/home"
+      redirect_to "/callback"
     end
+  
   end
   
