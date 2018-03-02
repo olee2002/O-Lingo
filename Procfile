@@ -1,1 +1,3 @@
-web: rails s
+
+web: sh -c 'cd client && PORT=3000 npm start'
+api: rails s -p 3001
