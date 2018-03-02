@@ -56,14 +56,14 @@ class MapContainer extends Component {
             width: '45vh',
             height: '60vh',
             opacity: '0.95',
-            border:'1px solid darkgray'
+            border:'3px solid white',
         }
         return (
             <Container>
-                <h3> Type Your Favorite City</h3>
+                <h4> Enter Your Fav City for The language</h4>
                 <br/>
                 <form onSubmit={this.handleSubmit}>
-                    Address:
+                    
                 <input
                         value={this.state.address}
                         type="text"

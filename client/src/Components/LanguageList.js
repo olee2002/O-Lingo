@@ -57,12 +57,9 @@ class LanguageList extends Component {
     }
 
     render() {
-
-
         const { selectedOption } = this.state;
         const { languages } = this.state;
         const { language } = this.state;
-        const { languageId } = this.state;
         const { lessons } = this.state;
         // console.log(this.state.selectedOption)
         // console.log('Render-language:' + JSON.stringify(language))

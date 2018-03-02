@@ -7,7 +7,7 @@ const LessonBox = (props) => {
     // console.log('hello:'+JSON.stringify(props.lessons))
     return (
         <Wrapper>
-            <button onClick={props.toggleLessonAdd} >Add Lesson </button>
+            <button onClick={(e)=>props.toggleLessonAdd(e)} >Add Lesson </button>
 
             {props.isToggled ?
                 <LessonCreateForm
@@ -17,18 +17,15 @@ const LessonBox = (props) => {
                 /> : null}
             <Container>
 
-                {props.lessons.map((lesson, i) => {
+                {props.lessons.map((lesson) => {
                     // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
                     // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
                     if (props.selectedOption.id !== lesson.language_id) { return null }
                     return (
 
-                        <Lesson key={i}>
+                        <Lesson key={lesson.id}>
                             <div><h3>{lesson.title}</h3>
-                                {/* <button
-                    onClick={(lesson) => { props.deleteLesson(lesson) }}>
-                    X
-                </button> */}
+                              
                             </div>
                             <div>
                                 <strong>Question</strong>: {lesson.question}  |
@@ -41,13 +38,14 @@ const LessonBox = (props) => {
                                 // allow="autoplay; encrypted-media"
                                 allowfullscreen>
                             </iframe>
-                            <button onClick={props.toggleLessonAdd} >Edit Lesson</button>
-
+                            <button onClick={(e)=>props.toggleLessonAdd(e)} >Edit</button>
+                            <button onClick={(lesson) => { props.deleteLesson(lesson) }}>Delete</button>
                             {props.isToggled ?
                                 <LessonEditForm
                                     lessons={props.lessons}{...props}
                                     languages={props.languages}{...props}
                                     language={props.language}{...props}
+                                    key={lesson.id}
                                 /> : null}
                             <br />
                         </Lesson>
