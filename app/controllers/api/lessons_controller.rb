@@ -6,12 +6,14 @@ class Api::LessonsController < ApplicationController
     @lessons = Lesson.all
     render json: @lessons.reverse 
   end
-
+  def show
+    @lesson = Lesson.find(params[:id])
+    render json: @lesson
+  end
   def create
 
   @lesson = Lesson.create!( lesson_params )
-
-    render json: @lesson.reverse
+    render json: @lesson
   end
 
   def update
@@ -23,7 +25,6 @@ class Api::LessonsController < ApplicationController
 
   def destroy
     @lesson = Lesson.find(params[:id]).destroy
-
     render status: 200
   end
 

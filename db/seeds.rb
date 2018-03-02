@@ -22,6 +22,12 @@ thankyou = Lesson.create!(title: 'Thank you', audio:"https://www.youtube.com/emb
 
 italian = Language.create!(name: 'Italian', location: 'Italy', img_url: 'https://www.theflagshop.co.uk/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/i/t/italy-flag-8x5.gif')
 hello = Lesson.create!(title: 'Hello', audio:"https://www.youtube.com/embed/dJ2AiodDhNI", question:'hello', answer:'ciao', user:olee, language:italian)
+seeyou = Lesson.create!(title: 'Goodbye', audio:"https://www.youtube.com/embed/0JNRLsOSbgc", question:'Goodbye!', answer:'
+ci vediamo!', user:olee, language:italian)
+thankyou = Lesson.create!(title: 'Thank you', audio:"https://www.youtube.com/embed/0JNRLsOSbgc", question:'Thank you!', answer:'grazie!', user:olee, language:italian)
+
 
 chinese = Language.create!(name: 'Chinese', location: 'China', img_url: 'https://www.theflagshop.co.uk/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/i/t/italy-flag-8x5.gif')
 hello = Lesson.create!(title: 'Hello', audio:"https://www.youtube.com/embed/7mkC29XFyVo", question:'hello', answer:'你好', user:olee, language:chinese)
+seeyou = Lesson.create!(title: 'Goodbye', audio:"https://www.youtube.com/embed/kRfHhfdSDws", question:'Goodbye!', answer:'再见!', user:olee, language:chinese)
+thankyou = Lesson.create!(title: 'Thank you', audio:"https://www.youtube.com/embed/ffrBtWT0f5I", question:'Thank you!', answer:'謝謝!', user:olee, language:chinese)

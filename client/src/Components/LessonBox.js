@@ -1,50 +1,59 @@
 import React from 'react'
 import styled from 'styled-components'
 import LessonCreateForm from './LessonCreateForm'
+import LessonEditForm from './LessonEditForm'
 
 const LessonBox = (props) => {
     // console.log('hello:'+JSON.stringify(props.lessons))
     return (
         <Wrapper>
-        <button onClick={props.toggleLessonAdd} >Add Lesson </button>
-            
-        {props.isToggled ?
-        <LessonCreateForm
-                        lessons={props.lessons}{...props}
-                        languages={props.languages}{...props}
-                        language={props.language}{...props}  
-                    /> : null}
-        <Container>
+            <button onClick={props.toggleLessonAdd} >Add Lesson </button>
 
-            {props.lessons.map((lesson, i) => {
-                // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
-                // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
-                if (props.selectedOption.id !== lesson.language_id) { return null }
-                return (
-                    
-                    <Lesson key={i}>
-                        <div><h3>{lesson.title}</h3>
-                        {/* <button
+            {props.isToggled ?
+                <LessonCreateForm
+                    lessons={props.lessons}{...props}
+                    languages={props.languages}{...props}
+                    language={props.language}{...props}
+                /> : null}
+            <Container>
+
+                {props.lessons.map((lesson, i) => {
+                    // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
+                    // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
+                    if (props.selectedOption.id !== lesson.language_id) { return null }
+                    return (
+
+                        <Lesson key={i}>
+                            <div><h3>{lesson.title}</h3>
+                                {/* <button
                     onClick={(lesson) => { props.deleteLesson(lesson) }}>
                     X
                 </button> */}
-                </div>
-                        <div>
-                            <strong>Question</strong>: {lesson.question}  |
+                            </div>
+                            <div>
+                                <strong>Question</strong>: {lesson.question}  |
                         <strong> Answer</strong>: {lesson.answer}
-                        </div>
-                        <br />
-                        <iframe
-                            src={lesson.audio}
-                            // frameborder="0"
-                            // allow="autoplay; encrypted-media"
-                            allowfullscreen>
-                        </iframe>
-                        <br />
-                    </Lesson>
-                )
-            })}
-        </Container>
+                            </div>
+                            <br />
+                            <iframe
+                                src={lesson.audio}
+                                // frameborder="0"
+                                // allow="autoplay; encrypted-media"
+                                allowfullscreen>
+                            </iframe>
+                            <button onClick={props.toggleLessonAdd} >Edit Lesson</button>
+
+                            {props.isToggled ?
+                                <LessonEditForm
+                                    lessons={props.lessons}{...props}
+                                    languages={props.languages}{...props}
+                                    language={props.language}{...props}
+                                /> : null}
+                            <br />
+                        </Lesson>
+                    )
+                })}
+            </Container>
         </Wrapper>
     )
 }
@@ -73,7 +82,7 @@ const Container = styled.div`
 `
 const Lesson = styled.div`
 width: 50vh;
-height:50vh;
+/* height:50vh; */
 margin:12.5px;
 
 box-shadow: 2px 2px 1px rgba(0,0,0,0.25);

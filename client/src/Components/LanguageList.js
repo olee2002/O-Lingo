@@ -12,13 +12,15 @@ class LanguageList extends Component {
         language: {},
         languageId: "",
         lessons: [],
-        lesson:{},
-        isToggled:false
+        lesson: {},
+        isToggled: false
     }
-    toggleLessonAdd = ()=>{
-        console.log('Hello Its toggled')
-        this.setState({isToggled:!this.state.isToggled})
+    toggleLessonAdd = () => {
+       
+        console.log('Hello Its LessonAddtoggled')
+        this.setState({ isToggled: !this.state.isToggled})
     }
+
     //Using axios to get all languages and lessons
     getAllData = async () => {
         //All Languages
@@ -34,7 +36,7 @@ class LanguageList extends Component {
     }
     deleteLesson = async (lesson) => {
         try {
-            await axios.get(`/api/languages/${this.state.language.id}/lessons`,lesson)
+            await axios.get(`/api/languages/${this.state.language.id}/lessons`, lesson)
 
             const indexToDelete = this.state.lessons.indexOf(lesson)
             const lessons = [...this.state.lessons]
@@ -91,11 +93,11 @@ class LanguageList extends Component {
                         language={language}
                         languages={languages}
                         lessons={lessons}
-                        isToggled ={this.state.isToggled}
+                        isToggled={this.state.isToggled}
                         selectedOption={selectedOption}
                         deleteLesson={this.deleteLesson}
-                        toggleLessonAdd={this.toggleLessonAdd}
-                    />
+                        toggleLessonAdd={this.toggleLessonAdd.bind(this)}
+                        />
                     : null
                 }
             </Container>
@@ -114,4 +116,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content:center;
   align-items:center;
+  input{
+      border: 1px solid darkgray;
+  }
 `

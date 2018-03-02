@@ -38,8 +38,9 @@ a{
 
 #navbutton{
   background:none;
-  width: 12.5vh;
+  width: 12vh;
   display:flex;
+  font-size:2vh;
   flex-direction:row;
   justify-content: center;
   align-items: center;
