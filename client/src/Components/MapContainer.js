@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 import ReactDOM from 'react-dom'
-import Geocode from "../Services/Geocode";
+import Geocode from "react-geocode"
 import styled from 'styled-components'
 
 

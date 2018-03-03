@@ -93,10 +93,10 @@ export default LessonEditForm
 const LessonAdd = styled.div`
 
 width: 50vh;
-height:50vh;
-margin:12.5px;
-box-shadow: 2px 2px 1px rgba(0,0,0,0.25);
-border:1px solid darkgray;
+/* height:50vh; */
+/* margin:12.5px; */
+/* box-shadow: 2px 2px 1px rgba(0,0,0,0.25); */
+/* border:1px solid darkgray; */
   display: flex;
   flex-direction: column;
   justify-content:center;

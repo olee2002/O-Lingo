@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import LessonCreateForm from './LessonCreateForm'
 import LessonEditForm from './LessonEditForm'
-
+//extends Component
 const LessonBox = (props) => {
-    // console.log('hello:'+JSON.stringify(props.lessons))
+
     return (
         <Wrapper>
-            <button onClick={(e)=>props.toggleLessonAdd(e)} >Add Lesson </button>
+            <button onClick={(e) => props.toggleAdd(e)} >Add Lesson </button>
 
             {props.isToggled ?
                 <LessonCreateForm
@@ -17,16 +17,14 @@ const LessonBox = (props) => {
                 /> : null}
             <Container>
 
-                {props.lessons.map((lesson) => {
+                {props.lessons.map((lesson, index) => {
                     // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
                     // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
                     if (props.selectedOption.id !== lesson.language_id) { return null }
                     return (
 
-                        <Lesson key={lesson.id}>
-                            <div><h3>{lesson.title}</h3>
-                              
-                            </div>
+                        <Lesson key={index}>
+                            <div><h3>{lesson.title}</h3></div>
                             <div>
                                 <strong>Question</strong>: {lesson.question}  |
                         <strong> Answer</strong>: {lesson.answer}
@@ -38,15 +36,17 @@ const LessonBox = (props) => {
                                 // allow="autoplay; encrypted-media"
                                 allowfullscreen>
                             </iframe>
-                            <button onClick={(e)=>props.toggleLessonAdd(e)} >Edit</button>
-                            <button onClick={(lesson) => { props.deleteLesson(lesson) }}>Delete</button>
-                            {props.isToggled ?
+                            <div>
+                                <button onClick={props.toggleEdit.bind(this,index)} >Edit</button>
+                                <button onClick={(lesson) => { props.deleteLesson(lesson) }}>Delete</button>
+                            </div>
+                            {props.isSelected[index] ?
                                 <LessonEditForm
                                     lessons={props.lessons}{...props}
                                     languages={props.languages}{...props}
                                     language={props.language}{...props}
-                                    key={lesson.id}
-                                /> : null}
+                                    key={index} />
+                                : null}
                             <br />
                         </Lesson>
                     )

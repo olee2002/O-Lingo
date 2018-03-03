@@ -6,21 +6,33 @@ import 'react-select/dist/react-select.css'
 import LessonBox from './LessonBox.js'
 
 class LanguageList extends Component {
-    state = {
+    constructor(props){
+        super(props)
+        this.state = {
         selectedOption: '',
         languages: [],
         language: {},
         languageId: "",
         lessons: [],
         lesson: {},
-        isToggled: false
+        isToggled: false,
+        isSelected:[],
+    
     }
-    toggleLessonAdd = () => {
-       
+    this.toggleEdit = this.toggleEdit.bind(this)
+}
+    toggleAdd = () => {
+        
         console.log('Hello Its LessonAddtoggled')
-        this.setState({ isToggled: !this.state.isToggled})
+        this.setState({ isToggled: !this.state.isToggled })
     }
-
+    toggleEdit = (index) => {
+        let isSelected = this.state.isSelected.slice(0)
+        isSelected[index] = !isSelected[index]
+        console.log('Hello Its LessonEdittoggled')
+        
+        this.setState({isSelected:isSelected })
+    }
     //Using axios to get all languages and lessons
     getAllData = async () => {
         //All Languages
@@ -41,19 +53,16 @@ class LanguageList extends Component {
             const indexToDelete = this.state.lessons.indexOf(lesson)
             const lessons = [...this.state.lessons]
             lesson.splice(indexToDelete, 1)
-
             this.setState({ lessons })
         } catch (error) {
             console.log(error)
         }
     }
     handleChange = (selectedOption) => {
-
         this.setState({ language: selectedOption, selectedOption: selectedOption });
     }
     async componentWillMount() {
         this.getAllData()
-
     }
 
     render() {
@@ -84,17 +93,18 @@ class LanguageList extends Component {
                     style={style}
                     onChange={this.handleChange}
                     options={allLanguages} />
-
                 {selectedOption ?
                     <LessonBox
                         language={language}
                         languages={languages}
                         lessons={lessons}
                         isToggled={this.state.isToggled}
+                        isSelected={this.state.isSelected}
                         selectedOption={selectedOption}
                         deleteLesson={this.deleteLesson}
-                        toggleLessonAdd={this.toggleLessonAdd.bind(this)}
-                        />
+                        toggleAdd={this.toggleAdd}
+                        toggleEdit={this.toggleEdit}
+                    />
                     : null
                 }
             </Container>
