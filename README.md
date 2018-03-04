@@ -1,24 +1,34 @@
-# README
+# O-LINGO
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Description
 
-Things you may want to cover:
+Language is a medium for connecting people and cultures.  Often people want to learn languages, but they don't know how to get started.  This is an app that will connect people to the language they want to speak. 
 
-* Ruby version
+OLingGo is a web based application for learning different languages which has a built in youtube video lessons for each topic and a google map feature that allows users to look up the locations and languages they are studying.  
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+#### https://o-lingo.herokuapp.com
+#### [Presentation](https://docs.google.com/presentation/d/1bK4_M8uRNLfetXI0HU_eFIe7k0wDtl-T3zb1XTTEXoM/edit#slide=id.p)
 
-* Database initialization
+#### [Trello Board For User Stories](https://trello.com/b/Rq3VzxGv/o-lingo-app)
 
-* How to run the test suite
+#### [Figma Wireframes](https://www.figma.com/file/EKVjDeNgOgwPaCBCyHciCmSm/Team-5---Vagabond-framework)
 
-* Services (job queues, cache servers, search engines, etc.)
+#### [Figma ERD](https://google.com)
 
-* Deployment instructions
+#### Technologies used
 
-* ...
+* Heroku - website hosting
+* Git - Source Control Management
+* Node - js runtime for development
+* NPM - package manager
+* Ruby on Rails - backend web framework
+* ActiveRecord - async DB handler
+* React - view handler
+* dotenv - loads environment variables, such as the DB
+* trello - user story tracking
+* vs code - text editor of choice
+* youtube - video/music hosting
+
+
