@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/*path', to: 'react#index'
   # namespace :api do
   #   get 'users/index'
   # end
