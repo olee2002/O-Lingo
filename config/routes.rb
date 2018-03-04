@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/callback', to: 'react#index'
+  get '/callback', to: 'api/react#index'
   # namespace :api do
   #   get 'users/index'
   # end
