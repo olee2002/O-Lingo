@@ -18,11 +18,8 @@ const LessonBox = (props) => {
             <Container>
 
                 {props.lessons.map((lesson, index) => {
-                    // console.log('FromLEssonBox LessonlanguageId:'+lesson.language_id)
-                    // console.log('FromLEssonBox languageId:'+props.selectedOption.id)
                     if (props.selectedOption.id !== lesson.language_id) { return null }
                     return (
-
                         <Lesson key={index}>
                             <div><h3>{lesson.title}</h3></div>
                             <div>
@@ -32,12 +29,10 @@ const LessonBox = (props) => {
                             <br />
                             <iframe
                                 src={lesson.audio}
-                                // frameborder="0"
-                                // allow="autoplay; encrypted-media"
                                 allowfullscreen>
                             </iframe>
                             <div>
-                                <button onClick={props.toggleEdit.bind(this,index)} >Edit</button>
+                                <button onClick={props.toggleEdit.bind(this, index)} >Edit</button>
                                 <button onClick={(lesson) => { props.deleteLesson(lesson) }}>Delete</button>
                             </div>
                             {props.isSelected[index] ?

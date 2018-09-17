@@ -19,16 +19,12 @@ class LessonAddForm extends Component {
         const handleChange = (e) => {
             const lesson = { ...this.state.lesson }
             lesson[e.target.name] = e.target.value
-            console.log('Handle:' + JSON.stringify(lesson))
             this.setState({ lesson })
-            console.log('RESULT:' + JSON.stringify(this.state.lesson))
         }
 
         //create lesson
         const handleSubmit = async (e, props) => {
             e.preventDefault()
-            console.log('FromRender:' + JSON.stringify(this.props.language))
-            console.log('FromRender:' + JSON.stringify(this.state.lesson))
             const payload = {
                 user_id: 1,
                 language_id: this.props.language.id,
@@ -39,7 +35,6 @@ class LessonAddForm extends Component {
             }
 
             const res = await axios.post(`/api/languages/${this.props.language.id}/lessons/`, payload)
-            // console.log('ThisFromAxios:'+JSON.stringify(res.data))
             this.setState({ lesson: payload })
             const reload = await window.location.reload()
         }
@@ -81,8 +76,6 @@ class LessonAddForm extends Component {
                             name="answer"
                             type="text" />
                     </div>
-
-
                     <button>Submit</button>
                 </form>
             </LessonAdd>
@@ -91,10 +84,11 @@ class LessonAddForm extends Component {
 }
 export default LessonAddForm
 
+///////////////////////////////////////////////////////////////////////////////
+//// STYLED-COMPONENTS
+///////////////////////////////////////////////////////////////////////////////
 
 const LessonAdd = styled.div`
-
-
 width: 50vh;
 height:50vh;
 margin:12.5px;

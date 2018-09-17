@@ -6,9 +6,8 @@ import 'react-select/dist/react-select.css'
 import LessonBox from './LessonBox.js'
 
 class LanguageList extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
+
+    state = {
         selectedOption: '',
         languages: [],
         language: {},
@@ -16,22 +15,16 @@ class LanguageList extends Component {
         lessons: [],
         lesson: {},
         isToggled: false,
-        isSelected:[],
-    
+        isSelected: [],
     }
-    this.toggleEdit = this.toggleEdit.bind(this)
-}
+
     toggleAdd = () => {
-        
-        console.log('Hello Its LessonAddtoggled')
         this.setState({ isToggled: !this.state.isToggled })
     }
     toggleEdit = (index) => {
         let isSelected = this.state.isSelected.slice(0)
         isSelected[index] = !isSelected[index]
-        console.log('Hello Its LessonEdittoggled')
-        
-        this.setState({isSelected:isSelected })
+        this.setState({ isSelected: isSelected })
     }
     //Using axios to get all languages and lessons
     getAllData = async () => {
@@ -70,17 +63,11 @@ class LanguageList extends Component {
         const { languages } = this.state;
         const { language } = this.state;
         const { lessons } = this.state;
-        // console.log(this.state.selectedOption)
-        // console.log('Render-language:' + JSON.stringify(language))
-        // console.log('Render-languageId:' + JSON.stringify(languageId))
-        // console.log('Render-lessons:' + JSON.stringify(lessons))
         const allLanguages = this.state.languages.map((language, i) => {
             return ({ value: language.name, label: language.name, id: language.id })
         })
-        // console.log('mapLanuage:'+ JSON.stringify(allLanguages))
-        // console.log('FromRender:'+languages)
+
         const value = selectedOption.value && selectedOption.value;
-        // console.log('WhatisValue' + selectedOption.value)
         const style = {
             width: '50vh'
         }
