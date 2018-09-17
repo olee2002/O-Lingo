@@ -37,12 +37,15 @@ class LessonEditForm extends Component {
                 answer: this.state.lesson.answer
             }
 
-            const res = await axios.patch(`/api/languages/${this.props.language.id}/lessons/`, payload)
+            const res = await axios.patch(`/api/languages/${this.props.language.id}/lessons/${this.props.selectedOption.id}`, payload)
             // console.log('ThisFromAxios:'+JSON.stringify(res.data))
             this.setState({ lesson: payload })
             const reload = await window.location.reload()
         }
+       
+
         return (
+
             <LessonAdd>
                 <h4>Edit Your Lessons</h4>
                 <form
