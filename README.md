@@ -13,9 +13,6 @@ OLingGo is a web based application for learning different languages which has a 
 
 #### [Trello Board For User Stories](https://trello.com/b/Rq3VzxGv/o-lingo-app)
 
-#### [Wireframes](https://github.com/olee2002/O-Lingo/blob/master/public/image/WireFrame.jpg)
-
-#### [ERD](https://github.com/olee2002/O-Lingo/blob/master/public/image/ERD.jpg)
 
 #### Technologies used
 
