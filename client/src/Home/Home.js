@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
-import MapContainer from '../Components/MapContainer.js'
-import LanguageList from '../Components/LanguageList.js'
 
 
 class Home extends Component {
@@ -12,7 +9,7 @@ class Home extends Component {
     const { isAuthenticated } = this.props.auth;
     return (
       <div className="container">
-        
+
         {
           !isAuthenticated() && (
             <h4>

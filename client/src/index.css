@@ -17,7 +17,7 @@ body::before {
   left:0;
   right:0;
   bottom:0;
-  background-image:linear-gradient(transparent,transparent,transparent,white),url(http://allswalls.com/images/cute-cats-hd-wallpaper-1.jpg);
+  background-image:linear-gradient(transparent,transparent,transparent,white),url('background/cute-cat.jpg');
   background-size: cover;
   background-repeat:no-repeat;
   width: 100%;
