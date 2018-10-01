@@ -7,8 +7,8 @@
  */
 
 let DEBUG = false;
-let API_KEY = process.env.REACT_APP_GOOLE_MAPS_API_KEY;
-console.log('API_KEY', process.env, 'key', process.env.REACT_APP_GOOLE_MAPS_API_KEY)
+let API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+console.log('API_KEY', process.env, 'key', process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
 
 function log(message, warn = false) {
