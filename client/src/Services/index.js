@@ -1,3 +1,4 @@
+// import { eventNames } from "cluster";
 /**
  * React Geocode Module
  *
@@ -6,7 +7,8 @@
  */
 
 let DEBUG = false;
-let API_KEY = null;
+let API_KEY = process.env.REACT_APP_GOOLE_MAPS_API_KEY;
+console.log('API_KEY', process.env)
 const GOOGLE_API = "https://maps.google.com/maps/api/geocode/json";
 
 function log(message, warn = false) {

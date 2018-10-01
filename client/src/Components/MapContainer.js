@@ -1,8 +1,11 @@
+
+
 import React, { Component } from 'react'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 import ReactDOM from 'react-dom'
-import Geocode from "../Services/Geocode"
+import Geocode from '../Services'
 import styled from 'styled-components'
+
 
 
 class MapContainer extends Component {
@@ -16,8 +19,7 @@ class MapContainer extends Component {
         Geocode.fromAddress(this.state.address).then(
             response => {
                 const { lat, lng } = response.results[0].geometry.location;
-                console.log(lat, lng);
-                this.setState({ lat: lat, lng: lng })
+                this.setState({ lat, lng })
             });
     }
 
@@ -40,7 +42,6 @@ class MapContainer extends Component {
     handleSubmit = async (e) => {
         e.preventDefault()
         this.getGeocode()
-        console.log('fromhandsubmit:' + this.state.address)
         this.setState({ address: this.state.address })
     }
 
@@ -51,20 +52,21 @@ class MapContainer extends Component {
     }
 
     render() {
+        console.log(process.env, process.env.REACT_APP_GOOLE_MAPS_API_KEY)
         const { address } = this.state
         const style = {
             width: '45vh',
             height: '60vh',
             opacity: '0.95',
-            border:'3px solid white',
+            border: '3px solid white',
         }
         return (
             <Container>
                 <h4> Enter Your Fav City for The language</h4>
-                <br/>
+                <br />
                 <form onSubmit={this.handleSubmit}>
-                    
-                <input
+
+                    <input
                         value={this.state.address}
                         type="text"
                         onChange={this.handleChange}
@@ -74,7 +76,7 @@ class MapContainer extends Component {
                 <br />
                 <Map google={this.props.google}
                     style={style}
-                    id="map" 
+                    id="map"
                     center={{ lat: this.state.lat, lng: this.state.lng }}
                     zoom={10}>
                     <Marker
@@ -91,7 +93,8 @@ class MapContainer extends Component {
 
 // export default MapContainer
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyCkLkbWR6ffwKyt0iZWK1ocErVK11Yi8M4'
+    apiKey: process.env.REACT_APP_GOOLE_MAPS_API_KEY
+    // apiKey: 'AIzaSyCkLkbWR6ffwKyt0iZWK1ocErVK11Yi8M4'
 })(MapContainer)
 
 
