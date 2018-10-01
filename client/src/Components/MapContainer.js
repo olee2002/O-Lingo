@@ -52,7 +52,6 @@ class MapContainer extends Component {
     }
 
     render() {
-        console.log(process.env, 'key', process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
         const { address } = this.state
         const style = {
             width: '45vh',
