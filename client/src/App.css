@@ -43,6 +43,7 @@ a{
   font-size:2vh;
   flex-direction:row;
   justify-content: center;
+  border-bottom: 5px solid transparent; 
   align-items: center;
 
 }
@@ -51,7 +52,6 @@ a{
   border-bottom: 5px solid darkgray;
   background: white;
   opacity: 0.6;
-  transform:translateY(1px);
   }
 
 button{
