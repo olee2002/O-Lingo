@@ -52,7 +52,7 @@ class MapContainer extends Component {
     }
 
     render() {
-        console.log(process.env, process.env.REACT_APP_GOOLE_MAPS_API_KEY)
+        console.log(process.env, 'key', process.env.REACT_APP_GOOLE_MAPS_API_KEY)
         const { address } = this.state
         const style = {
             width: '45vh',
